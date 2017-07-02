@@ -1,8 +1,7 @@
-FROM runmymind/docker-android-sdk AS androidsdk
 FROM python:3
 
 ENV ANDROID_HOME=/opt/android-sdk
-COPY --from=androidsdk /opt/android-sdk-linux ${ANDROID_HOME}
+VOLUME ${ANDROID_HOME}
 
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends \
