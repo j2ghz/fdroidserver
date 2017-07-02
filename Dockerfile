@@ -1,12 +1,10 @@
-FROM runmymind/docker-android-sdk AS androidsdk
-FROM python:3
-
-ENV ANDROID_HOME=/opt/android-sdk
-COPY --from=androidsdk /opt/android-sdk-linux ${ANDROID_HOME}
+FROM runmymind/docker-android-sdk:feature_no-chown
 
 RUN apt-get update && \
-    apt-get install -yq --no-install-recommends \
-      openjdk-7-jdk \
+    apt-get install -y \
+      default-jre \
+      git \
+      libssl-dev python3-dev python3-pip libjpeg-dev zlib1g-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://gitlab.com/fdroid/fdroidserver.git \
