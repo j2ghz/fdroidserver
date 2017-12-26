@@ -6,8 +6,9 @@ RUN gpg --import /signing-key.asc
 
 RUN git clone --depth 1 https://gitlab.com/fdroid/fdroidserver.git \
     && cd fdroidserver \
-    && pip3 install -e . \
-    && python3 setup.py install
+    && pyvenv fdroidserver-env \ 
+    && . fdroidserver-env/bin/activate \ 
+    && pip3 install fdroidserver 
 
 VOLUME ["/repo"]
 WORKDIR /repo
