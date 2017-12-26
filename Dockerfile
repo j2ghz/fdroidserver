@@ -13,5 +13,5 @@ RUN git clone --depth 1 https://gitlab.com/fdroid/fdroidserver.git \
 VOLUME ["/repo"]
 WORKDIR /repo
 
-ENTRYPOINT ["fdroid"]
+ENTRYPOINT ["/fdroidserver/fdroid"]
 CMD ["--help"]
