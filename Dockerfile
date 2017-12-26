@@ -7,8 +7,8 @@ RUN gpg --import /signing-key.asc
 RUN git clone --depth 1 https://gitlab.com/fdroid/fdroidserver.git \
     && cd fdroidserver \
     && git fetch --tags \
-    && git tag -v 0.8 \
-    && git checkout 0.8 \
+    && git tag -v 0.9 \
+    && git checkout 0.9 \
     && pip3 install -e . \
     && python3 setup.py install
 
